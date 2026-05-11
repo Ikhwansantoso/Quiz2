@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RouteFinder - Python Version</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="glass-panel header">
+            <h1>RouteFinder (Python+Flask) 🛡️</h1>
+            <div class="header-controls">
+                <button class="outline" id="btn-clear">Clear Map</button>
+                <button class="primary" id="btn-solve">Cari Rute Evakuasi</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <aside class="glass-panel sidebar">
+                <div class="control-group">
+                    <h3>Tools</h3>
+                    <button class="tool-button active" data-tool="wall">
+                        <div class="tool-icon" style="background: var(--wall)"></div>
+                        Draw Wall
+                    </button>
+                    <button class="tool-button" data-tool="fire">
+                        <div class="tool-icon" style="background: var(--danger)"></div>
+                        Draw Fire
+                    </button>
+                    <button class="tool-button" data-tool="eraser">
+                        <div class="tool-icon" style="background: transparent; border: 1px solid #fff"></div>
+                        Eraser
+                    </button>
+                </div>
+                
+                <div class="control-group" style="margin-top: 1rem">
+                    <h3>Placement</h3>
+                    <button class="tool-button" data-tool="start">
+                        <div class="tool-icon" style="background: var(--safe); border-radius: 50%"></div>
+                        Move Start Pos
+                    </button>
+                    <button class="tool-button" data-tool="exit">
+                        <div class="tool-icon" style="background: var(--primary)"></div>
+                        Move Exit Pos
+                    </button>
+                </div>
+
+                <div class="stats-panel">
+                    <div class="stat-box">
+                       <div class="stat-value" id="stat-distance">-</div>
+                       <div class="stat-label">Steps (Distance)</div>
+                    </div>
+                    <div class="stat-box">
+                       <div class="stat-value" id="stat-status">Ready</div>
+                       <div class="stat-label">Status</div>
+                    </div>
+                 </div>
+            </aside>
+
+            <section class="glass-panel grid-container">
+                <!-- Javascript will generate grid inside this div -->
+                <div id="grid" class="grid" onmouseleave="handleMouseLeave()"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Panggil file javascript kita -->
+    <script src="/static/script.js"></script>
+</body>
+</html>
