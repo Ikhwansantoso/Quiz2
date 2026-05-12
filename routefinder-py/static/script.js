@@ -1,8 +1,8 @@
-const ROWS = 20;
-const COLS = 30;
+const ROWS = 15;
+const COLS = 20;
 
 let startNode = { r: 10, c: 5 };
-let exitNode = { r: 10, c: 25 };
+let exitNode = { r: 10, c: 15 };
 let activeTool = 'wall';
 let isVisualizing = false;
 let mouseIsPressed = false;
@@ -21,14 +21,14 @@ function initGrid() {
             const node = document.createElement('div');
             node.id = `node-${r}-${c}`;
             node.className = 'node';
-            
+
             if (r === startNode.r && c === startNode.c) node.classList.add('node-start');
             if (r === exitNode.r && c === exitNode.c) node.classList.add('node-exit');
-            
+
             node.onmousedown = () => handleMouseDown(r, c);
             node.onmouseenter = () => handleMouseEnter(r, c);
             node.onmouseup = () => handleMouseUp();
-            
+
             rowDiv.appendChild(node);
         }
         gridElement.appendChild(rowDiv);
@@ -99,7 +99,9 @@ document.getElementById('btn-solve').addEventListener('click', async () => {
     if (isVisualizing) return;
     isVisualizing = true;
     document.getElementById('btn-solve').innerText = 'Finding Route...';
-    
+    document.getElementById('stat-distance').innerText = '-';
+    document.getElementById('stat-status').innerText = 'Ready';
+
     // Bersihkan jalur lama
     for (let r = 0; r < ROWS; r++) {
         for (let c = 0; c < COLS; c++) {
@@ -118,7 +120,7 @@ document.getElementById('btn-solve').addEventListener('click', async () => {
                 exit: [exitNode.r, exitNode.c]
             })
         });
-        
+
         const data = await response.json();
         animateDijkstra(data.visited_order, data.path);
     } catch (e) {
@@ -147,10 +149,11 @@ function animateDijkstra(visited, path) {
 
 function animatePath(path) {
     if (path.length === 0) {
-        alert("Evacuation Failed: No Safe Route Found!");
+        showResultModal(false);
         isVisualizing = false;
         document.getElementById('btn-solve').innerText = 'Cari Rute Evakuasi';
-        document.getElementById('stat-status').innerText = 'Trapped!';
+        document.getElementById('stat-distance').innerText = '-';
+        document.getElementById('stat-status').innerText = 'No Route';
         return;
     }
 
@@ -160,16 +163,43 @@ function animatePath(path) {
             if ((r !== startNode.r || c !== startNode.c) && (r !== exitNode.r || c !== exitNode.c)) {
                 document.getElementById(`node-${r}-${c}`).classList.add('node-path');
             }
-            
+
             if (i === path.length - 1) {
                 isVisualizing = false;
                 document.getElementById('btn-solve').innerText = 'Cari Rute Evakuasi';
-                document.getElementById('stat-distance').innerText = path.length - 1;
+                const steps = path.length - 1;
+                document.getElementById('stat-distance').innerText = steps;
                 document.getElementById('stat-status').innerText = 'Safe';
+                showResultModal(true, steps);
             }
         }, 50 * i);
     }
 }
+
+function showResultModal(success, steps) {
+    const modal = document.getElementById('result-modal');
+    const icon = document.getElementById('modal-icon');
+    const title = document.getElementById('modal-title');
+    const message = document.getElementById('modal-message');
+
+    if (success) {
+        title.innerText = "Route Found!";
+        message.innerText = `Shortest path found with ${steps} steps.`;
+        icon.innerHTML = "✔"; // Centang hijau
+        icon.className = "modal-icon success";
+    } else {
+        title.innerText = "No Safe Route Found!";
+        message.innerText = "The exit is unreachable. Please modify the map and try again.";
+        icon.innerHTML = "!"; // Tanda seru merah
+        icon.className = "modal-icon failed";
+    }
+
+    modal.classList.remove('hidden');
+}
+
+document.getElementById('modal-close').addEventListener('click', () => {
+    document.getElementById('result-modal').classList.add('hidden');
+});
 
 // Inisialisasi awal UI
 initGrid();

@@ -10,7 +10,7 @@
 <body>
     <div class="app-container">
         <header class="glass-panel header">
-            <h1>RouteFinder (Python+Flask) 🛡️</h1>
+            <h1>RouteFinder</h1>
             <div class="header-controls">
                 <button class="outline" id="btn-clear">Clear Map</button>
                 <button class="primary" id="btn-solve">Cari Rute Evakuasi</button>
@@ -64,6 +64,16 @@
                 <div id="grid" class="grid" onmouseleave="handleMouseLeave()"></div>
             </section>
         </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="result-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-panel">
+            <div id="modal-icon" class="modal-icon"></div>
+            <h2 id="modal-title">Title</h2>
+            <p id="modal-message">Message</p>
+            <button class="primary" id="modal-close">OK</button>
+        </div>
     </div>
 
     <!-- Panggil file javascript kita -->
