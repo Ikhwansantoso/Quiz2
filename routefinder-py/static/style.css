@@ -95,7 +95,7 @@ button.outline:hover { background: rgba(255,255,255,0.05); }
   100% { transform: scale(1); background-color: var(--path); box-shadow: 0 0 8px var(--path-glow); border-radius: 4px;}
 }
 
-.stats-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: auto; }
+.stats-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
 .stat-box { background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; border: 1px solid var(--bg-panel-border); }
 .stat-value { font-size: 1.5rem; font-weight: 800; color: var(--text-main); }
 .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-top: 4px; }
