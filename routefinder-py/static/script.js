@@ -166,7 +166,7 @@ function animatePath(path) {
 
             if (i === path.length - 1) {
                 isVisualizing = false;
-                document.getElementById('btn-solve').innerText = 'Cari Rute Evakuasi';
+                document.getElementById('btn-solve').innerText = 'Find Evacuation Route';
                 const steps = path.length - 1;
                 document.getElementById('stat-distance').innerText = steps;
                 document.getElementById('stat-status').innerText = 'Safe';

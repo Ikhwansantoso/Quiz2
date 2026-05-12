@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,14 @@
     <link rel="stylesheet" href="/static/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="app-container">
         <header class="glass-panel header">
             <h1>RouteFinder</h1>
             <div class="header-controls">
                 <button class="outline" id="btn-clear">Clear Map</button>
-                <button class="primary" id="btn-solve">Cari Rute Evakuasi</button>
+                <button class="primary" id="btn-solve">Find Evacuation Route</button>
             </div>
         </header>
 
@@ -34,7 +36,7 @@
                         Eraser
                     </button>
                 </div>
-                
+
                 <div class="control-group">
                     <h3>Placement</h3>
                     <button class="tool-button" data-tool="start">
@@ -49,20 +51,20 @@
 
                 <div class="stats-panel">
                     <div class="stat-box">
-                       <div class="stat-value" id="stat-distance">-</div>
-                       <div class="stat-label">Steps (Distance)</div>
+                        <div class="stat-value" id="stat-distance">-</div>
+                        <div class="stat-label">Steps (Distance)</div>
                     </div>
                     <div class="stat-box">
-                       <div class="stat-value" id="stat-status">Ready</div>
-                       <div class="stat-label">Status</div>
+                        <div class="stat-value" id="stat-status">Ready</div>
+                        <div class="stat-label">Status</div>
                     </div>
-                 </div>
+                </div>
             </aside>
 
             <section class="glass-panel grid-container">
                 <!-- Javascript will generate grid inside this div -->
                 <div id="grid" class="grid" onmouseleave="handleMouseLeave()"></div>
-                
+
                 <div class="legend-horizontal">
                     <div class="legend-item">
                         <div class="legend-icon" style="background: var(--safe); border-radius: 50%"></div>
@@ -77,7 +79,9 @@
                         <span>Wall</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-icon" style="background: var(--danger); border-radius: 4px; box-shadow: 0 0 4px rgba(239,68,68,0.6)"></div>
+                        <div class="legend-icon"
+                            style="background: var(--danger); border-radius: 4px; box-shadow: 0 0 4px rgba(239,68,68,0.6)">
+                        </div>
                         <span>Fire</span>
                     </div>
                     <div class="legend-item">
@@ -102,4 +106,5 @@
     <!-- Panggil file javascript kita -->
     <script src="/static/script.js"></script>
 </body>
+
 </html>
