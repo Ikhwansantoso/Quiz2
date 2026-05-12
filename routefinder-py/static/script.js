@@ -151,7 +151,7 @@ function animatePath(path) {
     if (path.length === 0) {
         showResultModal(false);
         isVisualizing = false;
-        document.getElementById('btn-solve').innerText = 'Cari Rute Evakuasi';
+        document.getElementById('btn-solve').innerText = 'Find Evacuation Route';
         document.getElementById('stat-distance').innerText = '-';
         document.getElementById('stat-status').innerText = 'No Route';
         return;
