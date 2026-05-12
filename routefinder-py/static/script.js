@@ -1,8 +1,8 @@
 const ROWS = 15;
-const COLS = 20;
+const COLS = 25;
 
 let startNode = { r: 10, c: 5 };
-let exitNode = { r: 10, c: 15 };
+let exitNode = { r: 10, c: 20 };
 let activeTool = 'wall';
 let isVisualizing = false;
 let mouseIsPressed = false;
