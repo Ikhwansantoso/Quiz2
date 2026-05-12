@@ -126,7 +126,7 @@ document.getElementById('btn-solve').addEventListener('click', async () => {
     } catch (e) {
         console.error("Error from Python backend:", e);
         isVisualizing = false;
-        document.getElementById('btn-solve').innerText = 'Cari Rute Evakuasi';
+        document.getElementById('btn-solve').innerText = 'Find Evacuation Route';
     }
 });
 
@@ -189,7 +189,7 @@ function showResultModal(success, steps) {
         icon.className = "modal-icon success";
     } else {
         title.innerText = "No Safe Route Found!";
-        message.innerText = "The exit is unreachable. Please modify the map and try again.";
+        message.innerText = "The exit is unreachable. \nPlease modify the map and try again.";
         icon.innerHTML = "!"; // Tanda seru merah
         icon.className = "modal-icon failed";
     }
