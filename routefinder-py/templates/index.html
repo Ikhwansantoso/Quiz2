@@ -24,15 +24,15 @@
                 <div class="control-group">
                     <h3>Tools</h3>
                     <button class="tool-button active" data-tool="wall">
-                        <div class="tool-icon" style="background: var(--wall)"></div>
+                        <div class="tool-icon node-wall" style="width: 20px; height: 20px;"></div>
                         Draw Wall
                     </button>
                     <button class="tool-button" data-tool="fire">
-                        <div class="tool-icon" style="background: var(--danger)"></div>
+                        <div class="tool-icon node-fire" style="width: 20px; height: 20px; font-size: 16px; display: flex; align-items: center; justify-content: center;"></div>
                         Draw Fire
                     </button>
                     <button class="tool-button" data-tool="eraser">
-                        <div class="tool-icon" style="background: transparent; border: 1px solid #fff"></div>
+                        <div class="tool-icon" style="background: transparent; border: 1px dashed #fff; width: 20px; height: 20px;"></div>
                         Eraser
                     </button>
                 </div>
@@ -40,11 +40,11 @@
                 <div class="control-group">
                     <h3>Placement</h3>
                     <button class="tool-button" data-tool="start">
-                        <div class="tool-icon" style="background: var(--safe); border-radius: 50%"></div>
+                        <div class="tool-icon node-start" style="width: 20px; height: 20px; font-size: 14px; display: flex; align-items: center; justify-content: center;"></div>
                         Move Start Pos
                     </button>
                     <button class="tool-button" data-tool="exit">
-                        <div class="tool-icon" style="background: var(--primary)"></div>
+                        <div class="tool-icon node-exit" style="width: 20px; height: 20px; font-size: 14px; display: flex; align-items: center; justify-content: center;"></div>
                         Move Exit Pos
                     </button>
                 </div>
@@ -67,25 +67,23 @@
 
                 <div class="legend-horizontal">
                     <div class="legend-item">
-                        <div class="legend-icon" style="background: var(--safe); border-radius: 50%"></div>
+                        <div class="legend-icon node-start" style="width: 24px; height: 24px; font-size: 16px; display: flex; align-items: center; justify-content: center;"></div>
                         <span>Start</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-icon" style="background: var(--primary); border-radius: 4px"></div>
+                        <div class="legend-icon node-exit" style="width: 24px; height: 24px; font-size: 16px; display: flex; align-items: center; justify-content: center;"></div>
                         <span>Exit</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-icon" style="background: var(--wall); border-radius: 4px"></div>
+                        <div class="legend-icon node-wall" style="width: 24px; height: 24px;"></div>
                         <span>Wall</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-icon"
-                            style="background: var(--danger); border-radius: 4px; box-shadow: 0 0 4px rgba(239,68,68,0.6)">
-                        </div>
+                        <div class="legend-icon node-fire" style="width: 24px; height: 24px; font-size: 16px; display: flex; align-items: center; justify-content: center;"></div>
                         <span>Fire</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-icon" style="background: var(--path); border-radius: 4px"></div>
+                        <div class="legend-icon node-path" style="width: 24px; height: 24px; animation: none; filter: drop-shadow(0 0 5px rgba(250, 204, 21, 0.8)); border-radius: 4px;"></div>
                         <span>Shortest Path</span>
                     </div>
                 </div>
