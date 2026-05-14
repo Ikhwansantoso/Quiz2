@@ -21,7 +21,7 @@ def run_dijkstra(grid, start, exit_node):
     while pq:
         current_distance, current_node = heapq.heappop(pq)
         
-        # Jika node ini sudah pernah diproses (misal kita push path yang lebih baik sebelumnya)
+        # Jika node ini sudah pernah diproses (misalkan kita mau push path yang lebih baik sebelumnya)
         if current_node in visited:
             continue
             
@@ -36,7 +36,7 @@ def run_dijkstra(grid, start, exit_node):
             
         r, c = current_node
         
-        # Cek 4 tetangga (Atas, Bawah, Kiri, Kanan)
+        # Cek 4(Atas, Bawah, Kiri, Kanan)
         neighbors = [(r-1, c), (r+1, c), (r, c-1), (r, c+1)]
         
         for nr, nc in neighbors:
@@ -49,7 +49,6 @@ def run_dijkstra(grid, start, exit_node):
                 # Bobot jarak antar tetangga adalah 1 langkah
                 new_distance = current_distance + 1
                 
-                # Relaksasi Dijkstra
                 if new_distance < distances[(nr, nc)]:
                     distances[(nr, nc)] = new_distance
                     previous_nodes[(nr, nc)] = current_node

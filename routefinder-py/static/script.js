@@ -7,7 +7,6 @@ let activeTool = 'wall';
 let isVisualizing = false;
 let mouseIsPressed = false;
 
-// 2D Array murni di Javascript: 0 (Aman), 1 (Bahaya/Halangan)
 let gridData = Array.from({ length: ROWS }, () => Array(COLS).fill(0));
 
 const gridElement = document.getElementById('grid');
@@ -77,7 +76,6 @@ function applyTool(r, c) {
     }
 }
 
-// Interaksi Sidebar
 document.querySelectorAll('.tool-button').forEach(btn => {
     btn.addEventListener('click', () => {
         document.querySelectorAll('.tool-button').forEach(b => b.classList.remove('active'));
@@ -94,7 +92,6 @@ document.getElementById('btn-clear').addEventListener('click', () => {
     document.getElementById('stat-status').innerText = 'Ready';
 });
 
-// Memanggil Python API (Flask)
 document.getElementById('btn-solve').addEventListener('click', async () => {
     if (isVisualizing) return;
     isVisualizing = true;
@@ -102,7 +99,6 @@ document.getElementById('btn-solve').addEventListener('click', async () => {
     document.getElementById('stat-distance').innerText = '-';
     document.getElementById('stat-status').innerText = 'Ready';
 
-    // Bersihkan jalur lama
     for (let r = 0; r < ROWS; r++) {
         for (let c = 0; c < COLS; c++) {
             const el = document.getElementById(`node-${r}-${c}`);
@@ -185,12 +181,12 @@ function showResultModal(success, steps) {
     if (success) {
         title.innerText = "Route Found!";
         message.innerText = `Shortest path found with ${steps} steps.`;
-        icon.innerHTML = "✔"; // Centang hijau
+        icon.innerHTML = "✔";
         icon.className = "modal-icon success";
     } else {
         title.innerText = "No Safe Route Found!";
         message.innerText = "The exit is unreachable. \nPlease modify the map and try again.";
-        icon.innerHTML = "!"; // Tanda seru merah
+        icon.innerHTML = "!";
         icon.className = "modal-icon failed";
     }
 
@@ -201,5 +197,4 @@ document.getElementById('modal-close').addEventListener('click', () => {
     document.getElementById('result-modal').classList.add('hidden');
 });
 
-// Inisialisasi awal UI
 initGrid();
